@@ -1,13 +1,18 @@
-<h1>index</h1>
+<div class=container>
+  <h1>Articles</h1>
+  <p class=text-center><%= link_to "New article", new_article_path, class: "fa-solid fa-plus fa 2xs link-no-underline" %></p>
 
-<%= link_to "New article", new_article_path, class: "btn btn-primary" %>
-
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article) %>
-      <%= link_to "Edit", edit_article_path(article) %>
-      <%= link_to "Delete", article_path(article), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-group list-group-flush">
+    <% @articles.each do |article| %>
+      <li class="list-group-item">
+        <h5>
+          <%= link_to article.title, article_path(article), class: "link-no-underline" %>
+          <%= link_to "", edit_article_path(article), class:"link-no-underline fa fa-pencil fa-2xs" %>
+          <%= link_to article_path(article), class:"link-no-underline", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash-can fa-2xs"></i>
+          <% end %>
+        </h5>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+.link-no-underline {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0.67em 0;
+  text-align-last: center;
+}
